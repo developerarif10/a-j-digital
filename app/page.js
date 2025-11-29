@@ -1,4 +1,5 @@
 import ProjectCard from '@/components/ProjectCard'
+import Testimonials from '@/components/Testimonials'
 import { projects, services } from '@/lib/content'
 import Link from 'next/link'
 
@@ -54,6 +55,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {/* Testimonials Snippet */}
+      <Testimonials />
     </>
   )
 }

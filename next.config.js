@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [], // Added source for potential remote images
+    domains: ['pro-section.ui-layouts.com'], // Added source for potential remote images
   },
 }
 
