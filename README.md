@@ -1,6 +1,6 @@
-# AJ Digital
+# Odommo Digital
 
-AJ Digital is a hybrid personal portfolio and digital agency website built with Next.js 14, Tailwind CSS, and Nodemailer. Features a soft pastel aesthetic, full accessibility compliance, and server-side email handling.
+Odommo Digital is a hybrid personal portfolio and digital agency website built with Next.js 14, Tailwind CSS, and Nodemailer. Features a soft pastel aesthetic, full accessibility compliance, and server-side email handling.
 
 ## 🚀 Getting Started
 
