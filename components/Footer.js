@@ -54,8 +54,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary">
-          <p>&copy; {year} B. Logo Agency. All rights reserved.</p>
-          <p>Designed & Built with ❤️</p>
+          <p>&copy; {year} Odommo Digital Agency. All rights reserved.</p>
+          <p>Designed & Built with <Link href="https://arifurrahman.site" target="_blank" className="hover:text-white transition-colors">@developerarif</Link></p>
         </div>
       </div>
     </footer>

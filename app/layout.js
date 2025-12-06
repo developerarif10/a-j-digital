@@ -7,15 +7,15 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: {
-    default: 'A&J DIGITAL | Creative Developer & Digital Agency',
-    template: '%s | A&J DIGITAL'
+    default: 'Odommo Digital | Creative Developer & Digital Agency',
+    template: '%s | Odommo Digital'
   },
   description: 'Hybrid portfolio and digital agency offering creative frontend development, web design, and digital solutions.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-      url: 'https://www.ajdigital.com/',
-      siteName: 'A&J DIGITAL',
+      url: 'https://www.odommodigital.dev/',
+      siteName: 'Odommo Digital',
   },
 }
 
