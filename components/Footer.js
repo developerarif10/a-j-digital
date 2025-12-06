@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              <span className="font-bold text-xl">B. Logo</span>
+              <span className="font-bold text-xl">Odommo Digital</span>
             </Link>
             <p className="text-secondary max-w-sm mb-8">
               Crafting digital experiences that merge art with technology. Let's build something extraordinary together.
