@@ -1,4 +1,5 @@
 import About from '@/components/About'
+import CTASection from '@/components/CTASection'
 import Faq from '@/components/Faq'
 import Hero from '@/components/Hero'
 import HowWeHelp from '@/components/HowWeHelp'
@@ -15,6 +16,7 @@ export default function Home() {
       <LogoCarousel />
       <WhatWeDo />
       <HowWeHelp />
+      <CTASection />
       <About />
       <Testimonials />
       <Faq />
