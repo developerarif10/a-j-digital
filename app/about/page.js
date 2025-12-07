@@ -1,51 +1,116 @@
-import { personalInfo, timeline } from '@/lib/content'
+import ServicesList from '@/components/ServicesList';
 
 export const metadata = {
-  title: 'About Me',
-}
+  title: 'About Us | Odommo Digital',
+  description: 'Full Service Creative Studio specializing in web, mobile, and experiential design.',
+};
 
 export default function About() {
   return (
-    <div className="container mx-auto px-6 py-20">
-      <div className="grid md:grid-cols-2 gap-16 items-start">
-        {/* Bio Column */}
-        <div>
-          <h1 className="text-4xl font-bold mb-8">About Me</h1>
-          <div className="prose prose-lg text-secondary">
-            <p className="mb-6">{personalInfo.bio}</p>
-            <p className="mb-6">
-              With a background in both design and development, I bridge the gap between aesthetics and functionality. I believe the web should be accessible, fast, and delightful to use.
-            </p>
-            <p>
-              When I'm not coding, I'm exploring new UI trends, contributing to open source, or experimenting with WebGL interactions.
-            </p>
+    <div className="bg-background text-foreground overflow-hidden">
+      {/* Hero Section */}
+      <section className="container mx-auto px-6 py-16 md:py-24">
+        <div className="flex flex-col lg:flex-row gap-16 items-start">
+          {/* Left Side - Image */}
+          <div className="w-full lg:w-1/2 relative">
+            <div className="relative aspect-square md:aspect-[4/3] rounded-sm overflow-hidden bg-muted">
+              {/* Using a high-quality Unsplash image that matches the 'creative team' vibe */}
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+                alt="Creative Team Working Together"
+                className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              {/* Decorative circle element from design if needed, simplified for now */}
+            </div>
           </div>
-          
-          <div className="mt-8">
-            <button className="flex items-center gap-2 bg-muted px-6 py-3 rounded-lg font-medium hover:bg-accent-teal/20 transition-colors text-primary">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Download CV (PDF)
+
+          {/* Right Side - Content */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center pt-4">
+            <span className="text-secondary text-sm font-medium tracking-widest uppercase mb-6 block">
+              What we do?
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+              We Are Full Service <br /> Creative Studio
+            </h1>
+            <p className="text-secondary mb-10 max-w-md leading-relaxed text-lg">
+              We craft premium digital work for web, mobile and experiential with
+              creative agencies and global brands alike – putting passion.
+            </p>
+
+            <button className="group flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-sm hover:bg-primary hover:text-white transition-colors duration-300 w-fit mb-16">
+              <span className="font-medium tracking-wide">View All Service</span>
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" // Standard arrow for now, diagonal is d="M7 17L17 7M17 7H7M17 7V17"
+                ></path>
+              </svg>
             </button>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-x-16 gap-y-10">
+              <div>
+                <h3 className="text-4xl font-bold mb-2">12+</h3>
+                <p className="text-xs text-secondary font-semibold uppercase tracking-wide">
+                  Years of experience
+                </p>
+              </div>
+              <div>
+                <h3 className="text-4xl font-bold mb-2">85%</h3>
+                <p className="text-xs text-secondary font-semibold uppercase tracking-wide">
+                  Average Conversion Rate
+                </p>
+              </div>
+              <div>
+                <h3 className="text-4xl font-bold mb-2">300K+</h3>
+                <p className="text-xs text-secondary font-semibold uppercase tracking-wide">
+                  Traffic Generated
+                </p>
+              </div>
+              <div>
+                <h3 className="text-4xl font-bold mb-2">100%</h3>
+                <p className="text-xs text-secondary font-semibold uppercase tracking-wide">
+                  Client satisfaction score
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Services List Section */}
+      <section className="container mx-auto px-6 py-12 md:py-20">
+        <div className="mb-12">
+          {/* Faint 'Services' Title matching the design's background text look */}
+          <h2 className="text-5xl md:text-7xl font-bold text-muted/50 dark:text-muted/10 tracking-tight">
+            Services
+          </h2>
         </div>
 
-        {/* Timeline Column */}
-        <div className="bg-surface p-8 rounded-3xl border border-muted">
-          <h2 className="text-2xl font-bold mb-8">Experience</h2>
-          <div className="space-y-8">
-            {timeline.map((item, index) => (
-              <div key={index} className="relative pl-8 border-l-2 border-accent-peach">
-                <span className="text-sm font-bold text-accent-violet bg-background px-2 py-1 rounded mb-2 inline-block border border-muted">
-                  {item.year}
-                </span>
-                <h3 className="text-lg font-bold">{item.role}</h3>
-                <p className="text-sm font-medium text-primary mb-1">{item.company}</p>
-                <p className="text-sm text-secondary">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+        <ServicesList />
+      </section>
+
+      {/* Footer CTA Section */}
+      <section className="container mx-auto px-6 pt-20 pb-32 text-center">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold max-w-5xl mx-auto leading-tight mb-16 text-secondary/30">
+          Boost Your Business Up Ranking High{' '}
+          <span className="text-foreground/20">Level</span>
+        </h2>
+        
+        <div className="flex justify-center">
+             <button className="border border-secondary/30 text-secondary px-10 py-4 rounded-sm hover:border-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-300 text-xs font-bold uppercase tracking-widest">
+                Get In Touch
+            </button>
         </div>
-      </div>
+       
+      </section>
     </div>
-  )
+  );
 }
