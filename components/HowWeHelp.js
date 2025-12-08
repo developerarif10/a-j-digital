@@ -1,75 +1,94 @@
 "use client"
-import { CheckCircle } from 'lucide-react'
-import Link from 'next/link'
 
 export default function HowWeHelp() {
-  const benefits = [
-    "Strategic Digital Consulting",
-    "High-Performance Web Development",
-    "User-Centric Design Systems",
-    "SEO & Conversion Optimization"
-  ]
-
   return (
-    <section id="how-we-help" className="py-24 bg-surface/50 border-y border-white/5">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
-            <div className="inline-block px-3 py-1 rounded-full bg-accent-violet/10 border border-accent-violet/20 text-accent-violet text-sm font-medium mb-6">
-              Why Choose Us
+    <section id="how-we-help" className="py-24 bg-background">
+      <div className="container mx-auto px-6 max-w-7xl">
+        
+        {/* Top Row: Bento Grid 3 Cols */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          
+          {/* Card 1: Overview */}
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
+            <div>
+              <span className="text-zinc-500 dark:text-zinc-400 font-medium tracking-wide">Overview</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Helping You Navigate the <span className="text-gradient">Digital Landscape</span>
-            </h2>
-            <p className="text-secondary text-lg mb-8 leading-relaxed">
-              We don't just build websites; we build digital solutions that solve real business problems. From the initial concept to the final launch, we partner with you to ensure your vision becomes a reality.
-            </p>
-            
-            <ul className="space-y-4 mb-10">
-              {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-3 text-lg">
-                  <CheckCircle className="text-accent-cyan w-6 h-6" />
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link href="/contact" className="inline-block bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-colors">
-              Start Your Project
-            </Link>
+            <div>
+              <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-black dark:text-white">
+                Crafted a refined digital identity and eCommerce experience for a luxury skincare brand, resulting in a 180% increase in online conversions.
+              </p>
+            </div>
           </div>
 
-          <div className="lg:w-1/2 relative">
-            <div className="relative h-[500px] w-full rounded-3xl overflow-hidden border border-white/10">
-              {/* Placeholder for an abstract or team image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 to-accent-violet/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-64 h-64 bg-accent-cyan/30 rounded-full blur-[100px]" />
-              </div>
-              
-              {/* Floating Cards Effect */}
-              <div className="absolute top-10 right-10 bg-black/40 backdrop-blur-xl p-6 rounded-2xl border border-white/10 max-w-xs transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
-                    <CheckCircle size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">Project Success</h4>
-                    <p className="text-xs text-secondary">On time & on budget</p>
-                  </div>
-                </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[90%] bg-green-500" />
-                </div>
-              </div>
-
-              <div className="absolute bottom-20 left-10 bg-black/40 backdrop-blur-xl p-6 rounded-2xl border border-white/10 max-w-xs transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                 <h4 className="text-3xl font-bold mb-1">98%</h4>
-                 <p className="text-sm text-secondary">Client Satisfaction Rate</p>
-              </div>
+          {/* Card 2: Image / Project */}
+          <div className="relative bg-zinc-900 rounded-[2.5rem] overflow-hidden min-h-[400px] lg:min-h-[500px] group">
+            <img 
+              src="/images/portfolio/work-1.webp" 
+              alt="Odommo Digital" 
+              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60"></div>
+            <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between pt-10">
+               <h3 className="text-white text-2xl md:text-3xl font-medium text-center">Odommo Digital</h3>
+               <span className="text-white/80 text-sm font-medium text-center">2025</span>
             </div>
+          </div>
+
+          {/* Card 3: Testimonial */}
+          <div className="bg-zinc-100 dark:bg-zinc-800/50 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
+             <div>
+               <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-black dark:text-white">
+                 "They elevated our entire identity and helped us connect with our audience in a way we never imagined."
+               </p>
+             </div>
+             
+             <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-300">
+                  <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Sophia Reynolds" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-black dark:text-white">Sophia Reynolds</h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">CEO of Odommo Digital</p>
+                </div>
+             </div>
           </div>
         </div>
+
+        {/* Bottom Row: Stats 4 Cols */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Stat 1 */}
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+               15<span className="text-2xl align-top text-blue-600">+</span>
+             </h3>
+             <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Years of Experience</p>
+          </div>
+
+          {/* Stat 2 */}
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+               100<span className="text-2xl align-top text-blue-600">+</span>
+             </h3>
+             <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Projects completed</p>
+          </div>
+
+          {/* Stat 3 */}
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+               97<span className="text-2xl align-top text-blue-600 ml-1">%</span>
+             </h3>
+             <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Client satisfaction rate</p>
+          </div>
+
+          {/* Stat 4 */}
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+               75<span className="text-2xl align-top text-blue-600">%</span>
+             </h3>
+             <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Conversion rate improvement</p>
+          </div>
+        </div>
+
       </div>
     </section>
   )

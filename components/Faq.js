@@ -1,7 +1,10 @@
-"use client"
+'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus } from 'lucide-react'
+import { ArrowUpRight, Plus } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
+import SelectionLabel from './SelectionLabel'
 
 const faqs = [
   {
@@ -35,42 +38,67 @@ export default function Faq() {
 
   return (
     <section className="py-24 bg-background">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <div className="space-y-0">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index} 
-              className="border-b last:border-0 border-dashed"
-              style={{ borderColor: 'rgb(0 0 0 / 10%)' }}
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+          
+          {/* Left Column: Static Content */}
+          <div className="lg:col-span-5 flex flex-col items-start gap-6 lg:sticky lg:top-32 h-fit">
+            <SelectionLabel text="FAQs" />
+            
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground leading-[0.9]">
+              Frequently Asked <br/> <span className="text-zinc-400">Questions.</span>
+            </h2>
+            
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mt-4">
+              We know every project is unique, and you might have some questions before getting started.
+            </p>
+            
+            <Link 
+              href="/contact" 
+              className="mt-4 flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-foreground font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
             >
-              <button
-                onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
-                className="w-full flex items-center justify-between py-6 text-left group"
+              Contact us
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </div>
+
+          {/* Right Column: FAQ List */}
+          <div className="lg:col-span-7 space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md"
               >
-                <span className="text-lg md:text-xl font-medium tracking-tight pr-8">{faq.question}</span>
-                <span className={`relative flex items-center justify-center w-6 h-6 transition-transform duration-200 ease-out ${
-                  index === openIndex ? 'rotate-45' : 'rotate-0'
-                }`}>
-                  <Plus className="w-6 h-6 text-foreground" />
-                </span>
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {index === openIndex && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                  >
-                    <div className="pb-6 text-muted-foreground leading-relaxed text-base md:text-lg">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                <button
+                  onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left group"
+                >
+                  <span className="text-lg md:text-xl font-medium tracking-tight pr-8">{faq.question}</span>
+                  <span className={`relative flex items-center justify-center w-6 h-6 flex-shrink-0 transition-transform duration-300 ${
+                    index === openIndex ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    <Plus className="w-6 h-6 text-foreground" />
+                  </span>
+                </button>
+                
+                <AnimatePresence initial={false}>
+                  {index === openIndex && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    >
+                      <div className="px-6 md:px-8 pb-6 md:pb-8 text-muted-foreground leading-relaxed text-base">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+          
         </div>
       </div>
     </section>

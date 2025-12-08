@@ -1,8 +1,8 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { GeistSans } from 'geist/font/sans'
-import './globals.css'
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { GeistSans } from 'geist/font/sans';
+import './globals.css';
 
 export const metadata = {
   title: {

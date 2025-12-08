@@ -1,6 +1,7 @@
 "use client"
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import SelectionLabel from './SelectionLabel'
 
 const services = [
   {
@@ -29,7 +30,6 @@ const services = [
   }
 ]
 
-import SelectionLabel from './SelectionLabel'
 
 // ... imports
 
@@ -40,14 +40,22 @@ export default function WhatWeDo() {
     <section id="what-we-do" className="py-24 bg-white dark:bg-black transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl">
         
-        {/* Header */}
-        <div className="mb-20 space-y-4">
-          <SelectionLabel text="Services" />
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white mt-4">
-            What we offer.
+
+        {/* Header - Redesigned V2: Label - Title - Description */}
+        <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-8 mb-20 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+          {/* Left: Services Label */}
+          <div className="flex items-center gap-2 justify-self-start">
+            <SelectionLabel text="Services" />
+          </div>
+          
+          {/* Center: Title */}
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] justify-self-center text-center">
+            What we <span className="text-zinc-400 dark:text-zinc-600">offer.</span>
           </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg md:text-xl max-w-xl ml-auto text-right">
-            We specialize in creating bold, high-impact digital experiences that set brands apart.
+            
+          {/* Right: Description */}
+          <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-sm leading-relaxed md:text-right justify-self-end">
+             We specialize in creating bold, high-impact digital experiences that set brands apart.
           </p>
         </div>
 

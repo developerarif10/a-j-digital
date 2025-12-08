@@ -1,45 +1,33 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CTASection() {
   return (
-    <section className="bg-background overflow-hidden relative">
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+    <section className="relative py-32 bg-background overflow-hidden flex items-center justify-center min-h-[500px]">
+      {/* Grid Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* Subtle Glow */}
+        <div className="absolute left-0 right-0 top-1/2 -z-10 m-auto h-[310px] w-[310px] -translate-y-1/2 rounded-full bg-blue-500 opacity-10 blur-[100px]"></div>
+      </div>
 
-        <div className="bg-surface border border-border rounded-3xl p-8 md:p-12 shadow-sm max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 relative overflow-hidden">
-         
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
-            Your budget is <br className="hidden md:block" />
-            <span className="relative inline-block mt-2">
-              <span className="relative z-10 bg-black dark:bg-black text-black dark:text-white px-4 py-1 transform -rotate-2 inline-block rounded-sm">
-                no longer an issue
-              </span>
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-2xl mx-auto">
-            We know that cost can be an obstacle for companies to take action 
-            on climate change, so we've done everything possible to make your 
-            sustainability journey affordable.
-          </p>
-          
-              {/* Button */}
-        <div className="mt-16 text-center">
-            <Link 
-                href="/contact" 
-                className="inline-flex items-center gap-2 bg-primary text-white text-lg font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
-            >
-                <div className="w-6 h-6 bg-black  rounded-full flex items-center justify-center">
-                    <ArrowRight className="w-3 h-3 text-white" />
-                </div>
-                Schedule a call
-            </Link>
-        </div>
-        </div>      
-        </div>
-
-      
-
+      <div className="container relative z-10 mx-auto px-4 text-center">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-10 leading-tight">
+          Let's Create Something <br />
+          <span className="relative inline-flex items-center gap-3 md:gap-6">
+            <span className="text-blue-600">Awesome?</span>
+            {/* Cursor Icon */}
+             <MousePointer2 className="w-8 h-8 md:w-14 md:h-14 text-black dark:text-white fill-black dark:fill-white rotate-[-15deg] translate-y-4" />
+          </span>
+        </h2>
+        
+        <Link 
+            href="/contact" 
+            className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-lg font-medium px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg mt-4"
+        >
+            Schedule a call
+            <ArrowRight className="w-5 h-5" />
+        </Link>
       </div>
     </section>
   );

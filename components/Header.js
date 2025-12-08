@@ -39,7 +39,7 @@ export default function Header() {
     <header 
       className={`fixed z-50 transition-all duration-300 left-1/2 -translate-x-1/2 ${
         scrolled 
-          ? 'w-[90%] top-4 rounded-2xl bg-background/60 backdrop-blur-xl border border-white/10 shadow-lg py-3' 
+          ? 'w-[95%] top-4 rounded-2xl bg-background/80 backdrop-blur-3xl border border-white/10 shadow-lg py-3' 
           : 'w-full top-0 bg-background py-5 border-b border-transparent'
       }`}
     >
@@ -56,7 +56,7 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-sm font-medium text-secondary hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
+              className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
             >
               {link.name}
             </Link>

@@ -60,7 +60,7 @@ export default function Hero() {
             </Link>
             <Link 
               href="#contact" 
-              className="w-full sm:w-auto px-8 py-4 bg-background border border-border text-foreground rounded-full font-bold text-lg hover:bg-secondary/10 transition-all flex items-center justify-center"
+              className="w-full sm:w-auto px-8 py-2 bg-background border border-border text-foreground rounded-full font-bold text-lg hover:bg-secondary/10 transition-all flex items-center justify-center"
             >
               Let's Talk
             </Link>
