@@ -1,6 +1,5 @@
-"use client"
 import { FlickeringGrid } from '@/components/ui/flickering-grid'
-import { Github, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -20,10 +19,7 @@ export default function Footer() {
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-muted-foreground">
                 <Twitter size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-muted-foreground">
-                <Instagram size={18} />
-              </a>
+              </a>    
               <a href="#" className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-muted-foreground">
                 <Linkedin size={18} />
               </a>
@@ -33,7 +29,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+        
+            <div>
             <h4 className="font-bold mb-6 text-foreground">Sitemap</h4>
             <ul className="space-y-4 text-muted-foreground">
               <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
@@ -57,7 +54,7 @@ export default function Footer() {
       </div>
 
       {/* Flickering Grid Section */}
-      <div className="relative w-full h-[300px] md:h-[500px] overflow-hidden bg-background">
+      <div className="relative w-full h-[150px] md:h-[250px] overflow-hidden bg-background">
         {/* Layer 1 (Bottom): Blue Grid (The Text) */}
         <FlickeringGrid
           className="absolute inset-0 z-0 size-full"
@@ -66,51 +63,9 @@ export default function Footer() {
           color="#248cfd"
           maxOpacity={0.5}
           flickerChance={0.1}
-          height={500}
-          width={1600}
+          height={250}
         />
 
-        {/* Mask Definition */}
-        <svg className="absolute w-0 h-0 pointer-events-none">
-          <defs>
-            <mask id="footer-mask" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse">
-              <rect width="100%" height="100%" fill="white" />
-              <text
-                x="50%"
-                y="50%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                className="font-bold text-5xl md:text-8xl tracking-tighter"
-                fill="black"
-                style={{ fontFamily: 'var(--font-geist-sans)' }}
-              >
-                Build your Dream website
-              </text>
-            </mask>
-          </defs>
-        </svg>
-
-        {/* Layer 2 (Top): Gray Grid (The Surroundings) */}
-        <div 
-          className="absolute inset-0 z-10 w-full h-full"
-          style={{ 
-            maskImage: 'url(#footer-mask)', 
-            WebkitMaskImage: 'url(#footer-mask)',
-            maskMode: 'luminance',
-            WebkitMaskMode: 'luminance',
-          }}
-        >
-          <FlickeringGrid
-            className="size-full"
-            squareSize={4}
-            gridGap={6}
-            color="#6B7280"
-            maxOpacity={0.2}
-            flickerChance={0.1}
-            height={500}
-            width={1600}
-          />
-        </div>
 
         {/* Gradient Overlay: Top=Background(Opaque) -> Bottom=Transparent */}
         {/* This creates "Top Low Opacity, Down High Opacity" effect */}
