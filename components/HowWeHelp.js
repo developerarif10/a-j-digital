@@ -1,7 +1,7 @@
 "use client"
-import { ArrowUpRight } from 'lucide-react'
-import Link from 'next/link'
 import SelectionLabel from './SelectionLabel'
+import Button from './mycomponent/Button'
+import RightArrow from './mycomponent/RightArrow'
 
 export default function HowWeHelp() {
   return (
@@ -23,10 +23,17 @@ export default function HowWeHelp() {
 
           {/* Right: Link */}
           <div className="flex justify-self-end pb-2">
-             <Link href="/case-studies" className="group flex items-center gap-2 text-base font-medium rounded-full bg-zinc-100 dark:bg-zinc-800 px-4 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
+             <Button
+               href="/case-studies" 
+               className="w-full sm:w-auto px-6 py-2 font-bold text-lg shadow-lg shadow-gray-200/5"
+               bgColor="bg-transparent"
+               borderColor="border-zinc-200 dark:border-zinc-800 hover:border-primary"
+               slideHoverColor="bg-primary"
+               hoverTextColor="hover:text-black dark:hover:text-white"
+               icon={<RightArrow />}
+             >
                Full case study
-               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-             </Link>
+             </Button>
           </div>
         </div>
 

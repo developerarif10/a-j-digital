@@ -1,5 +1,6 @@
-import { ArrowRight, MousePointer2 } from 'lucide-react';
-import Link from 'next/link';
+import { MousePointer2 } from 'lucide-react';
+import Button from './mycomponent/Button';
+import RightArrow from './mycomponent/RightArrow';
 
 export default function CTASection() {
   return (
@@ -17,17 +18,21 @@ export default function CTASection() {
           <span className="relative inline-flex items-center gap-3 md:gap-6">
             <span className="text-blue-600">Awesome?</span>
             {/* Cursor Icon */}
-             <MousePointer2 className="w-8 h-8 md:w-14 md:h-14 text-black dark:text-white fill-black dark:fill-white rotate-[-15deg] translate-y-4" />
+             <MousePointer2 className="w-8 h-8 md:w-14 md:h-14 text-black dark:text-white fill-black dark:fill-white rotate-[-15deg] translate-y-1" />
           </span>
         </h2>
-        
-        <Link 
+        <Button 
             href="/contact" 
-            className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-lg font-medium px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg mt-4"
+            className="px-8 py-2.5 font-medium text-lg shadow-lg mt-4"
+            bgColor="bg-white dark:bg-black"
+            textColor='text-black dark:text-white'
+            borderColor="hover:border-primary"
+            slideHoverColor="bg-primary"
+            hoverTextColor="hover:text-black dark:hover:text-white"
+            icon={<RightArrow  />}
         >
-            Schedule a call
-            <ArrowRight className="w-5 h-5" />
-        </Link>
+           Schedule a call
+        </Button>
       </div>
     </section>
   );

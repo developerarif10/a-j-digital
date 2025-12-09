@@ -2,9 +2,9 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, Plus } from 'lucide-react'
-import Link from 'next/link'
 import { useState } from 'react'
 import SelectionLabel from './SelectionLabel'
+import Button from './mycomponent/Button'
 
 const faqs = [
   {
@@ -53,13 +53,18 @@ export default function Faq() {
               We know every project is unique, and you might have some questions before getting started.
             </p>
             
-            <Link 
+            <Button 
               href="/contact" 
-              className="mt-4 flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-foreground font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
+              className="mt-4 px-6 py-3 font-medium"
+              bgColor="bg-transparent"
+              textColor="text-foreground"
+              borderColor="border-zinc-200 dark:border-zinc-800"
+              slideHoverColor="bg-foreground"
+              hoverTextColor="group-hover:text-background"
+              icon={<ArrowUpRight className="w-4 h-4" />}
             >
               Contact us
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            </Button>
           </div>
 
           {/* Right Column: FAQ List */}

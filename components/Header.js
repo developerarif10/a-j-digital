@@ -3,6 +3,8 @@ import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import Button from './mycomponent/Button'
+import RightArrow from './mycomponent/RightArrow'
 
 const navLinks = [
   { name: 'Work', href: '#work' },
@@ -39,7 +41,7 @@ export default function Header() {
     <header 
       className={`fixed z-50 transition-all duration-300 left-1/2 -translate-x-1/2 ${
         scrolled 
-          ? 'w-[95%] top-4 rounded-2xl bg-background/80 backdrop-blur-3xl border border-white/10 shadow-lg py-3' 
+          ? 'w-[95%] top-4 rounded-xl bg-background/80 backdrop-blur-3xl border border-white/10 shadow-lg py-3' 
           : 'w-full top-0 bg-background py-5 border-b border-transparent'
       }`}
     >
@@ -56,7 +58,7 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
+              className="text-sm font-medium hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
             >
               {link.name}
             </Link>
@@ -72,16 +74,24 @@ export default function Header() {
             {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           
-          <Link href="/contact" className="bg-foreground text-background px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
+          <Button 
+            href="/contact" 
+            className="px-6 py-2.5 font-bold text-sm"
+             bgColor="bg-transparent"
+            borderColor="hover:border-primary"
+            slideHoverColor="bg-primary"
+            hoverTextColor="hover:text-black dark:hover:text-white"
+            icon={<RightArrow  />}
+          >
             Start building
-          </Link>
+          </Button>
         </div>
 
         {/* Mobile Toggle & Theme */}
         <div className="flex md:hidden items-center gap-4 z-50">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full text-foreground"
+            className="p-2 rounded-md text-foreground"
           >
             {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -109,13 +119,18 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
-          <Link 
+          <div className="mt-4" onClick={() => setIsOpen(false)}>
+           <Button
             href="/contact" 
-            className="bg-foreground text-background px-8 py-4 rounded-full text-lg font-bold mt-4"
-            onClick={() => setIsOpen(false)}
+            className="px-6 py-2.5 font-bold text-sm"
+            bgColor="bg-foreground"
+            textColor="text-background"
+            hoverBgColor="hover:opacity-90"
+            icon={<RightArrow />}
           >
             Start building
-          </Link>
+          </Button>
+          </div>
         </nav>
       </div>
     </header>

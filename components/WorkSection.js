@@ -1,6 +1,8 @@
 "use client"
 import { projects } from '@/lib/content'
 import ProjectCard from './ProjectCard'
+import Button from './mycomponent/Button'
+import RightArrow from './mycomponent/RightArrow'
 
 export default function WorkSection() {
   // Ensure we have at least 4 projects, or duplicate if needed for the layout
@@ -17,24 +19,16 @@ export default function WorkSection() {
             A showcase of our recent collaborations with ambitious brands and startups.
           </p>
             
-          <button className="group flex items-center gap-2 px-6 py-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-black  font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors   whitespace-nowrap justify-self-end">
+          <Button 
+            className="w-full sm:w-auto px-6 py-2 font-medium whitespace-nowrap justify-self-end"
+            bgColor="bg-transparent"
+            borderColor="border-zinc-200 dark:border-zinc-800 hover:border-primary"
+            slideHoverColor="bg-primary"
+            hoverTextColor="hover:text-black dark:hover:text-white"
+            icon={<RightArrow  />}
+          >
             View all
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-            >
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </button>
+          </Button>
         </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

@@ -1,7 +1,9 @@
 "use client"
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
-import Link from 'next/link'
+import SelectionLabel from './SelectionLabel'
+import Button from './mycomponent/Button'
+import { Highlight } from './mycomponent/HIghlight'
+import RightArrow from './mycomponent/RightArrow'
 
 export default function Hero() {
   return (
@@ -18,10 +20,8 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-border text-sm font-medium text-secondary-foreground mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-primary fill-primary/20" />
-            <span>Your Digital Growth Partner</span>
+            className="inline-flex items-center gap-2 px-4 text-sm font-medium mb-8"
+          ><SelectionLabel text="Your Digital Growth Partner" />
           </motion.div>
 
           {/* Headline */}
@@ -31,7 +31,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tighter text-foreground mb-8 leading-[1.1]"
           >
-            Transform Your Business Into a <span className="text-primary">Digital Powerhouse</span>
+            Transform Your Business Into a <br/> <Highlight className="text-black dark:text-white">
+         Digital Powerhouse
+        </Highlight>
           </motion.h1>
 
           {/* Description */}
@@ -51,19 +53,28 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
           >
-            <Link 
+            <Button 
               href="/contact" 
-              className="w-full sm:w-auto px-8 py-2 bg-primary text-white rounded-full font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
+              className="w-full sm:w-auto px-8 py-2 font-bold text-lg shadow-lg shadow-primary/25 border-primary"
+              bgColor="bg-primary"
+              textColor="text-white"
+              slideHoverColor="bg-primary/90"
+              hoverBgColor=""
+          icon={<RightArrow width={16} height={16} />}
             >
               Start Project
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link 
-              href="#contact" 
-              className="w-full sm:w-auto px-8 py-2 bg-background border border-border text-foreground rounded-full font-bold text-lg hover:bg-secondary/10 transition-all flex items-center justify-center"
+            </Button>
+            <Button 
+              href="/contact" 
+              className="w-full sm:w-auto px-8 py-2 font-bold text-lg"
+              bgColor="bg-background"
+              textColor="text-foreground"
+              borderColor="border-border hover:border-primary"
+              slideHoverColor="bg-primary"
+              hoverTextColor="hover:text-black dark:hover:text-white"
             >
               Let's Talk
-            </Link>
+            </Button>
           </motion.div>
 
         </div>
