@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
+import InteractiveGridBackground from './InteractiveGridBackground'
 import SelectionLabel from './SelectionLabel'
 import Button from './mycomponent/Button'
 import { Highlight } from './mycomponent/HIghlight'
@@ -7,7 +8,9 @@ import RightArrow from './mycomponent/RightArrow'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <InteractiveGridBackground />
+      
       {/* Subtle Background Spotlights - blending with header */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[500px] bg-accent-violet/5 rounded-full blur-[120px] -z-10" />

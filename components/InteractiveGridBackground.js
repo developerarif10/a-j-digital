@@ -1,75 +1,55 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export default function InteractiveGridBackground({ className }) {
-  const [columns, setColumns] = useState(0);
-  const [rows, setRows] = useState(0);
   const containerRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const calculateGrid = () => {
-      if (!containerRef.current) return;
-      const { clientWidth, clientHeight } = containerRef.current;
-      const size = 50; // Grid cell size in pixels
-      const cols = Math.ceil(clientWidth / size);
-      const rws = Math.ceil(clientHeight / size);
-      setColumns(cols);
-      setRows(rws);
-    };
+  // Grid cell size in pixels - matches the bg-[size:24px_24px] utility
+  const cellSize = 24;
 
-    calculateGrid();
-    window.addEventListener("resize", calculateGrid);
-    return () => window.removeEventListener("resize", calculateGrid);
-  }, []);
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Calculate snapped coordinates
+    const snappedX = Math.floor(x / cellSize) * cellSize;
+    const snappedY = Math.floor(y / cellSize) * cellSize;
+
+    setMousePosition({ x: snappedX, y: snappedY });
+  };
+
+  const handleMouseEnter = () => setIsVisible(true);
+  const handleMouseLeave = () => setIsVisible(false);
 
   return (
     <div
       ref={containerRef}
-      className={cn("absolute inset-0 -z-10 overflow-hidden", className)}
-    >
-      <div
-        className="grid h-full w-full"
-        style={{
-          gridTemplateColumns: `repeat(${columns}, 1fr)`,
-          gridTemplateRows: `repeat(${rows}, 1fr)`,
-        }}
-      >
-        {Array.from({ length: columns * rows }).map((_, i) => (
-          <GridCell key={i} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function GridCell() {
-  const controls = useAnimation();
-
-  const handleMouseEnter = () => {
-    controls.start({
-      opacity: 1,
-      transition: { duration: 0 },
-    }).then(() => {
-      controls.start({
-        opacity: 0,
-        transition: { duration: 1.5, ease: "easeOut" },
-      });
-    });
-  };
-
-  return (
-    <div
+      className={cn("absolute inset-0 z-0 overflow-hidden", className)}
+      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
-      className="relative border-[0.5px] border-neutral-200 dark:border-neutral-800/50"
+      onMouseLeave={handleMouseLeave}
     >
-      <motion.div
-        animate={controls}
-        initial={{ opacity: 0 }}
-        className="absolute inset-0 bg-primary/20 dark:bg-primary/30"
-      />
+      {/* Static Grid Lines (CSS Based - Matches CTA Section) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000010_1px,transparent_1px),linear-gradient(to_bottom,#00000010_1px,transparent_1px)] bg-[size:24px_24px] dark:bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)]"></div>
+
+      {/* Snapping Highlight Square */}
+      {isVisible && mousePosition.x !== null && (
+        <div
+          className="absolute bg-primary/20 dark:bg-primary/30 pointer-events-none transition-all duration-150 ease-out"
+          style={{
+            left: mousePosition.x,
+            top: mousePosition.y,
+            width: cellSize,
+            height: cellSize,
+          }}
+        />
+      )}
     </div>
   );
 }
