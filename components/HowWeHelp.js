@@ -5,7 +5,7 @@ import RightArrow from './mycomponent/RightArrow'
 
 export default function HowWeHelp() {
   return (
-    <section id="how-we-help" className="py-24 bg-background">
+    <section id="how-we-help" className="pb-12">
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header: Real Impact */}
@@ -16,9 +16,9 @@ export default function HowWeHelp() {
           </div>
           
           {/* Center: Title */}
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] text-center justify-self-center min-w-max">
-            Real Impact, <br />
-            <span className="text-zinc-400">Proven Results.</span>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start min-w-max">
+             <span className="">Real Impact, </span><br/>
+            <span className="text-zinc-400 dark:text-zinc-600">Proven Results.</span>
           </h2>
 
           {/* Right: Link */}
@@ -41,7 +41,7 @@ export default function HowWeHelp() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
           
           {/* Card 1: Overview */}
-          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
             <div>
               <span className="text-zinc-500 dark:text-zinc-400 font-medium tracking-wide">Overview</span>
             </div>
@@ -53,7 +53,7 @@ export default function HowWeHelp() {
           </div>
 
           {/* Card 2: Image / Project */}
-          <div className="relative bg-zinc-900 rounded-[2.5rem] overflow-hidden min-h-[400px] lg:min-h-[500px] group">
+          <div className="relative bg-zinc-900 rounded-xl overflow-hidden min-h-[400px] lg:min-h-[500px] group">
             <img 
               src="/images/portfolio/work-1.webp" 
               alt="Odommo Digital" 
@@ -67,7 +67,7 @@ export default function HowWeHelp() {
           </div>
 
           {/* Card 3: Testimonial */}
-          <div className="bg-zinc-100 dark:bg-zinc-800/50 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
+          <div className="bg-zinc-100 dark:bg-zinc-800/50 rounded-xl p-8 md:p-10 flex flex-col justify-between min-h-[400px] lg:min-h-[500px]">
              <div>
                <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-black dark:text-white">
                  "They elevated our entire identity and helped us connect with our audience in a way we never imagined."
@@ -75,7 +75,7 @@ export default function HowWeHelp() {
              </div>
              
              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-300">
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-zinc-300">
                   <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Sophia Reynolds" className="w-full h-full object-cover" />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ export default function HowWeHelp() {
         {/* Bottom Row: Stats 4 Cols */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Stat 1 */}
-          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-white relative">
                15<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
@@ -97,7 +97,7 @@ export default function HowWeHelp() {
           </div>
 
         {/* Stat 2 */}
-          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-white relative">
                100<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
@@ -105,7 +105,7 @@ export default function HowWeHelp() {
           </div>
 
           {/* Stat 3 */}
-          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-white relative">
                97<span className="text-2xl align-top text-blue-600 ml-1">%</span>
              </h3>
@@ -113,7 +113,7 @@ export default function HowWeHelp() {
           </div>
 
           {/* Stat 4 */}
-          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-[2rem] p-8 flex flex-col justify-between h-[200px]">
+          <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
              <h3 className="text-4xl md:text-5xl font-bold text-white relative">
                75<span className="text-2xl align-top text-blue-600">%</span>
              </h3>

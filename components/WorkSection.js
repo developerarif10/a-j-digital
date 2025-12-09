@@ -10,12 +10,13 @@ export default function WorkSection() {
 
   return (
     <section id="work" className="py-24 container mx-auto px-6">
-     <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-8 pb-12">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-black leading-[0.9] justify-self-start">
-            Selected Work
+     <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-6 pb-12">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
+            <span className="">Selected </span>
+            <span className="text-zinc-400 dark:text-zinc-600">Work.</span>
           </h2>
-          
-          <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-sm leading-relaxed justify-self-center">
+
+          <p className="text-zinc-500 dark:text-zinc-400 text-end md:text-lg max-w-sm leading-relaxed justify-self-center">
             A showcase of our recent collaborations with ambitious brands and startups.
           </p>
             
@@ -31,7 +32,7 @@ export default function WorkSection() {
           </Button>
         </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         {displayProjects.map((project, index) => (
           <ProjectCard key={`${project.slug}-${index}`} project={project} />
         ))}

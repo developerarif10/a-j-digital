@@ -44,10 +44,11 @@ export default function Faq() {
           {/* Left Column: Static Content */}
           <div className="lg:col-span-5 flex flex-col items-start gap-6 lg:sticky lg:top-32 h-fit">
             <SelectionLabel text="FAQs" />
-            
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground leading-[0.9]">
-              Frequently Asked <br/> <span className="text-zinc-400">Questions.</span>
-            </h2>
+          
+             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
+            <span className="">Frequently Asked </span><br/>
+            <span className="text-zinc-400 dark:text-zinc-600">Questions.</span>
+          </h2>
             
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mt-4">
               We know every project is unique, and you might have some questions before getting started.
@@ -72,7 +73,7 @@ export default function Faq() {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-md"
+                className="border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md"
               >
                 <button
                   onClick={() => setOpenIndex(index === openIndex ? -1 : index)}

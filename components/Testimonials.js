@@ -102,7 +102,7 @@ const TestimonialSection = () => {
   };
 
   return (
-    <section ref={ref} className="relative w-full bg-zinc-50 dark:bg-background py-24 overflow-hidden font-sans">
+    <section ref={ref} className="relative w-full pt-12">
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
         
@@ -117,8 +117,8 @@ const TestimonialSection = () => {
             <div className="flex items-center gap-2 mb-4">
               <SelectionLabel text="Testimonials" />
             </div>
-            <h2 className="text-4xl font-semibold tracking-tight text-black dark:text-white sm:text-5xl leading-tight">
-           Real Results, Real Transformations.
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
+           Real Results, Real <span className="text-zinc-400 dark:text-zinc-500">Transformations.</span>
             </h2>
           </motion.div>
           
@@ -148,7 +148,7 @@ const TestimonialSection = () => {
               key={item.id}
               variants={cardVariants}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="group relative flex-shrink-0 w-[85vw] sm:w-[500px] snap-center flex flex-col justify-between overflow-hidden rounded-[2rem] bg-white dark:bg-zinc-900 shadow-sm hover:shadow-xl transition-all duration-300 min-h-[320px]"
+              className="group relative flex-shrink-0 w-[85vw] sm:w-[500px] snap-center flex flex-col justify-between overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-sm hover:shadow-xl transition-all duration-300 min-h-[320px]"
             >
               {/* Gradient Border Line */}
               <div className={`absolute top-0 bottom-0 left-0 w-1.5 bg-gradient-to-b ${item.gradient}`}></div>
@@ -158,7 +158,7 @@ const TestimonialSection = () => {
                 {/* Header: Author & Company */}
                 <div className="flex items-start justify-between mb-8">
                   <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                     <div className="w-12 h-12 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                         <img src={item.author.img} alt={item.author.name} className="w-full h-full object-cover" />
                      </div>
                      <div>
@@ -198,7 +198,7 @@ const NavButton = ({ onClick, icon, label }) => (
     onClick={onClick}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-black dark:text-white transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 shadow-sm"
+    className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-black dark:text-white transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 shadow-sm"
     aria-label={label}
   >
     <div className="text-xl">

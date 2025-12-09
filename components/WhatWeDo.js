@@ -37,20 +37,21 @@ export default function WhatWeDo() {
   const [activeId, setActiveId] = useState(1)
 
   return (
-    <section id="what-we-do" className="py-24 bg-white dark:bg-black transition-colors duration-300">
+    <section id="what-we-do" className="transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl">
         
 
         {/* Header - Redesigned V2: Label - Title - Description */}
-        <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-8 mb-20 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+        <div className="flex flex-col md:grid md:grid-cols-3 items-start md:items-center gap-8 mb-8 pb-8">
           {/* Left: Services Label */}
           <div className="flex items-center gap-2 justify-self-start">
             <SelectionLabel text="Services" />
           </div>
           
           {/* Center: Title */}
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-black dark:text-white leading-[0.9] justify-self-center text-center">
-            What we <span className="text-zinc-400 dark:text-zinc-600">offer.</span>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] justify-self-start">
+            <span className="">What we </span>
+            <span className="text-zinc-400 dark:text-zinc-600">offer.</span>
           </h2>
             
           {/* Right: Description */}
@@ -70,7 +71,7 @@ export default function WhatWeDo() {
                 onClick={() => setActiveId(service.id)}
                 className="relative cursor-pointer group"
               >
-                <div className={`relative z-10 px-8 py-6 flex items-center gap-6 rounded-2xl transition-colors duration-500 ${
+                <div className={`relative z-10 px-8 py-8 flex items-center gap-6 rounded-2xl transition-colors duration-500 ${
                   activeId === service.id 
                     ? 'text-black dark:text-white' 
                     : 'text-zinc-400 dark:text-zinc-500 hover:text-black dark:hover:text-zinc-300'
@@ -96,7 +97,7 @@ export default function WhatWeDo() {
           </div>
 
           {/* Right Column: Details Card (Sticky on Desktop) */}
-          <div className="lg:h-[500px] lg:sticky lg:top-32">
+          <div className="lg:h-[600px] lg:sticky lg:top-32">
              <div className="relative h-full">
                <AnimatePresence mode="wait">
                  <motion.div
@@ -105,7 +106,7 @@ export default function WhatWeDo() {
                    animate={{ opacity: 1, y: 0 }}
                    exit={{ opacity: 0, y: -20 }}
                    transition={{ duration: 0.3 }}
-                   className="w-full bg-zinc-100 dark:bg-zinc-900 rounded-[2rem] p-10 md:p-12 flex flex-col justify-between h-[400px] md:h-[500px]"
+                   className="w-full bg-zinc-100 dark:bg-zinc-900 rounded-2xl p-10 md:p-12 flex flex-col justify-between h-[400px] md:h-[500px]"
                  >
                    <div>
                      <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed font-medium">

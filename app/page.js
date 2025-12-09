@@ -13,9 +13,9 @@ export default function Home() {
       <WorkSection />
       <WhatWeDo />
       <HowWeHelp />
-      <CTASection />
       <Testimonials />
       <Faq />
+      <CTASection />
     </>
   )
 }

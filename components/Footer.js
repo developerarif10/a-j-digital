@@ -6,10 +6,10 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-background pt-20 pb-0 relative overflow-hidden">
-      <div className="container mx-auto px-6 mb-20">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
+    <footer className="bg-background pt-20 relative overflow-hidden ">
+      <div className="container mx-auto px-6 mb-20 ">
+        <div className="grid md:grid-cols-4 gap-12 mb-16 ">
+          <div className="col-span-1 md:col-span-2 ">
             <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
               <span className="font-bold text-xl text-foreground">Odommo Digital</span>
             </Link>

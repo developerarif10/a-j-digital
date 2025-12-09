@@ -51,7 +51,7 @@ export default function ProjectCard({ project }) {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group block relative w-full h-[500px] rounded-[32px] overflow-hidden cursor-none"
+      className="group block relative w-full h-[500px] rounded-xl overflow-hidden cursor-none"
     >
       {/* Background Image with Zoom Effect */}
       <div className="absolute inset-0 w-full h-full">
