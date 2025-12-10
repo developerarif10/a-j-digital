@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import {
@@ -11,9 +12,7 @@ import {
   IoPlanet,
   IoPrism
 } from "react-icons/io5";
-import { RiDoubleQuotesR } from 'react-icons/ri';
 import SelectionLabel from './SelectionLabel';
-
 
 const testimonials = [
   {
@@ -179,8 +178,12 @@ const TestimonialSection = () => {
                 </blockquote>
 
                 {/* Footer Quote Icon */}
-                <div className="absolute bottom-6 right-8">
-                   <RiDoubleQuotesR className="text-6xl opacity-20 text-blue-500 transform rotate-12" />
+                <div className="absolute bottom-0 right-4">
+                   {/* <RiDoubleQuotesR className="text-6xl opacity-20 text-blue-500 transform rotate-12" /> */}
+
+                   <Image src="/images/quote_icon.webp" alt="Quote" className="w-12 h-12" width={100} height={100} />
+
+
                 </div>
                 
               </div>
