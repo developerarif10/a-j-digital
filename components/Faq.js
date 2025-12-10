@@ -1,10 +1,11 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, Plus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { useState } from 'react'
 import SelectionLabel from './SelectionLabel'
-import Button from './mycomponent/Button'
+import RightArrow from './mycomponent/RightArrow'
+import UnderlineToBackground from './mycomponent/underline-to-background'
 
 const faqs = [
   {
@@ -33,11 +34,26 @@ const faqs = [
   }
 ]
 
+
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0)
 
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  }
+ const wordVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+    const words = "We know every project is unique, and you might have some questions before getting started.".split(" ")
+
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           
@@ -50,22 +66,25 @@ export default function Faq() {
             <span className="text-zinc-400 dark:text-zinc-600">Questions.</span>
           </h2>
             
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mt-4">
-              We know every project is unique, and you might have some questions before getting started.
-            </p>
-            
-            <Button 
-              href="/contact" 
-              className="mt-4 px-6 py-3 font-medium"
-              bgColor="bg-transparent"
-              textColor="text-foreground"
-              borderColor="border-zinc-200 dark:border-zinc-800"
-              slideHoverColor="bg-foreground"
-              hoverTextColor="group-hover:text-background"
-              icon={<ArrowUpRight className="w-4 h-4" />}
-            >
-              Contact us
-            </Button>
+    <div>
+      <motion.h2
+        initial="hidden"
+        animate="visible"
+        className='mb-6'
+        variants={fadeInVariants}
+      >
+        {words.map((word, index) => (
+          <motion.span key={index} variants={wordVariants} className="inline-block mr-1">
+            {word}
+          </motion.span>
+        ))} </motion.h2>
+        <motion.span variants={wordVariants} className="inline-block">
+          <UnderlineToBackground className="cursor-pointer">
+            <div className="flex items-center gap-2">Contact Us <RightArrow/></div>
+          </UnderlineToBackground>
+        </motion.span>
+     
+    </div>
           </div>
 
           {/* Right Column: FAQ List */}
