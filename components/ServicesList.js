@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import RightArrow from './mycomponent/RightArrow';
 
 const services = [
   {
@@ -73,15 +74,7 @@ export default function ServicesList() {
               <span className="text-[10px] font-bold uppercase tracking-wider text-center leading-tight">
                 View <br /> Project
               </span>
-              <svg 
-                className="w-4 h-4 mt-1" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+           <RightArrow className='skew-y-[-20deg]'/>
             </motion.div>
         )}
       </AnimatePresence>
@@ -124,7 +117,7 @@ export default function ServicesList() {
                  <h3 className={`text-4xl md:text-6xl font-bold transition-all duration-300 ${
                   hoveredService === service.id 
                     ? 'text-foreground translate-x-4' 
-                    : 'text-secondary/40'
+                    : 'text-foreground'
                 }`}>
                   {service.title}
                 </h3>
@@ -139,7 +132,7 @@ export default function ServicesList() {
               {service.details.map((detail, idx) => (
                 <span 
                   key={idx} 
-                  className="text-xs text-secondary font-medium uppercase tracking-wider"
+                  className="text-xs font-medium uppercase tracking-wider"
                 >
                   {detail}
                 </span>
