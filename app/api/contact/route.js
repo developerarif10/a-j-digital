@@ -3,7 +3,13 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request) {
   try {
-    const { name, email, subject, service, message } = await request.json()
+    const { name, email, subject, service, message, phone, _gotcha } = await request.json()
+
+    // Honeypot check (Bot detection)
+    if (_gotcha) {
+      // Silently fail for bots - return passed status but don't send email
+      return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
+    }
 
     // Validation
     if (!name || !email || !message) {
@@ -27,10 +33,19 @@ export async function POST(request) {
       to: process.env.CONTACT_TO,
       subject: `New Message: ${subject || 'No Subject'}`,
       html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Service:</strong> ${service}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+          <h2 style="color: #000;">New Contact Form Submission</h2>
+          <hr style="border: 1px solid #eee; margin: 20px 0;" />
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+          <p><strong>Service:</strong> ${service || 'General Inquiry'}</p>
+          <p><strong>Subject:</strong> ${subject || 'No Subject'}</p>
+          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 20px;">
+            <p style="margin: 0; font-weight: bold;">Message:</p>
+            <p style="white-space: pre-wrap; margin-top: 10px;">${message}</p>
+          </div>
+        </div>
       `,
     }
 

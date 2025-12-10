@@ -12,7 +12,7 @@ export default function About() {
   return (
     <div className="bg-background text-foreground overflow-hidden">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16 md:py-24">
+      <section className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left Side - Image */}
           <div className="w-full lg:w-1/2 relative">
