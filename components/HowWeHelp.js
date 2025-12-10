@@ -9,7 +9,7 @@ export default function HowWeHelp() {
       <div className="container mx-auto px-6 max-w-7xl">
         
         {/* Header: Real Impact */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-2 md:mb-8 pb-2 md:pb-8">
+        <div className="grid grid-cols-1 justify-center items-center md:grid-cols-3 gap-6 md:gap-8 mb-2 md:mb-8 pb-2 md:pb-8">
    
           <div className="flex flex-col gap-1 justify-self-start">
             <SelectionLabel text="Case study" />
@@ -22,10 +22,10 @@ export default function HowWeHelp() {
           </h2>
 
           {/* Right: Link */}
-          <div className="flex justify-self-start md:justify-self-end pb-2">
-             <Button
+          <div className="flex  justify-self-start md:justify-self-end">
+            <div className="pb-2"> <Button
                href="/case-studies" 
-               className="w-full sm:w-auto px-6 py-2 font-bold text-lg shadow-lg shadow-gray-200/5"
+               className="px-6 py-2 font-bold text-lg shadow-lg shadow-gray-200/5"
                bgColor="bg-transparent"
                borderColor="border-zinc-200 dark:border-zinc-800 hover:border-primary"
                slideHoverColor="bg-primary"
@@ -33,7 +33,7 @@ export default function HowWeHelp() {
                icon={<RightArrow />}
              >
                Full case study
-             </Button>
+             </Button></div>
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export default function HowWeHelp() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Stat 1 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
-             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+             <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
                15<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Years of Experience</p>
@@ -98,7 +98,7 @@ export default function HowWeHelp() {
 
         {/* Stat 2 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
-             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+             <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
                100<span className="text-2xl align-top text-blue-600">+</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Projects completed</p>
@@ -106,7 +106,7 @@ export default function HowWeHelp() {
 
           {/* Stat 3 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
-             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+             <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
                97<span className="text-2xl align-top text-blue-600 ml-1">%</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Client satisfaction rate</p>
@@ -114,7 +114,7 @@ export default function HowWeHelp() {
 
           {/* Stat 4 */}
           <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-8 flex flex-col justify-between h-[200px]">
-             <h3 className="text-4xl md:text-5xl font-bold text-white relative">
+             <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white relative">
                75<span className="text-2xl align-top text-blue-600">%</span>
              </h3>
              <p className="text-zinc-500 dark:text-zinc-400 font-medium text-sm">Conversion rate improvement</p>
