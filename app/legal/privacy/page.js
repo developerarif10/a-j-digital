@@ -1,6 +1,6 @@
 export default function Privacy() {
     return (
-        <div className="container mx-auto px-6 py-20 max-w-3xl prose prose-slate">
+        <div className="my-10 container mx-auto px-6 py-20 max-w-3xl prose prose-slate">
             <h1>Privacy Policy</h1>
             <p>Effective Date: January 1, 2025</p>
             <p>This Privacy Policy describes how Sanne Agency ("we", "us", or "our") collects, uses, and shares your personal information when you visit our website.</p>

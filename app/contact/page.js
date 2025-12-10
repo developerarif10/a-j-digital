@@ -50,7 +50,7 @@ export default function Contact() {
 
 
   return (
-    <div className="bg-white dark:bg-black min-h-screen flex items-center justify-center py-20 md:py-32 transition-colors duration-300">
+    <section className="min-h-screen flex mt-10 md:mt-0 items-center justify-center py-20 md:py-32 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
           
@@ -58,7 +58,7 @@ export default function Contact() {
           <div className="space-y-12">
             <div className="space-y-6">
               <SelectionLabel text="Contact us" />
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-black dark:text-white leading-tight mt-4">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight mt-4">
                 Get in <span className="text-zinc-500 dark:text-zinc-500">Touch.</span>
               </h1>
               <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-md leading-relaxed">
@@ -68,22 +68,22 @@ export default function Contact() {
 
             <div className="space-y-8">
               <div className="space-y-2">
-                 <a href="mailto:hello@odommodigital.com" className="text-3xl md:text-4xl font-medium text-black dark:text-white hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors block">
+                 <a href="mailto:hello@odommodigital.com" className="text-3xl md:text-4xl font-medium  hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors block">
                    hello@odommodigital.com
                  </a>
-                 <p className="text-xl font-medium text-zinc-900 dark:text-zinc-100">(123) 456-7890</p>
+                 <p className="text-xl font-medium ">(123) 456-7890</p>
               </div>
 
               <div className="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
 
               <div className="space-y-1">
-                <p className="font-bold text-black dark:text-white">Address:</p>
-                <p className="text-zinc-500 dark:text-zinc-400">123 Street, Metropolis, State, ZIP</p>
+                <p className="font-bold">Address:</p>
+                <p>123 Street, Metropolis, State, ZIP</p>
               </div>
 
               <div className="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
               
-              <div className="flex gap-6 text-lg font-medium text-zinc-900 dark:text-white">
+              <div className="flex gap-6 text-lg font-medium ">
                 <a href="#" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">Twitter/x</a>
                 <a href="#" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">Instagram</a>
                 <a href="#" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">Youtube</a>
@@ -92,16 +92,16 @@ export default function Contact() {
           </div>
 
           {/* RIGHT COLUMN - Form */}
-          <div className="bg-zinc-100/80 dark:bg-zinc-900 rounded-[2rem] p-8 md:p-12 transition-colors duration-300">
+          <div className="bg-zinc-100/80 dark:bg-zinc-900 rounded-xl p-8 md:p-12 transition-colors duration-300">
              {status === "success" ? (
                <motion.div
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
                  className="text-center py-20"
                >
-                  <h3 className="text-2xl font-bold text-black dark:text-white mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold  mb-2">Message Sent!</h3>
                   <p className="text-zinc-600 dark:text-zinc-400 mb-6">We'll get back to you shortly.</p>
-                  <button onClick={() => setStatus("idle")} className="text-black dark:text-white font-bold hover:underline">Send another</button>
+                  <button onClick={() => setStatus("idle")} className=" font-bold hover:underline">Send another</button>
                </motion.div>
              ) : (
                <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,7 +135,7 @@ export default function Contact() {
                   <button 
                      type="submit" 
                      disabled={status === "loading"}
-                     className="w-full py-4 bg-black dark:bg-white text-white dark:text-black rounded-xl font-medium text-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors disabled:opacity-50 mt-4"
+                     className="w-full py-4 bg-primary text-white rounded-xl font-medium text-lg cursor-pointer transition-colors disabled:opacity-50 mt-4"
                   >
                      {status === "loading" ? "Sending..." : "Send Message"}
                   </button>
@@ -145,6 +145,6 @@ export default function Contact() {
 
         </div>
       </div>
-    </div>
+    </section>
   )
 }
