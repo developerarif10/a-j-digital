@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="bg-background text-foreground overflow-hidden">
+    <div className="bg-background text-foreground overflow-hidden pt-24">
       {/* Hero Section */}
       <section className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
@@ -96,7 +96,7 @@ export default function About() {
       </section>
 
       {/* Footer CTA Section */}
-      <section className="container mx-auto px-6 pt-20 pb-32 text-center">
+      <section className="container mx-auto px-6 pt-12 pb-12 text-center">
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold max-w-5xl mx-auto leading-tight mb-16">
           Boost Your Business Up Ranking High{' '}
           <span className="text-primary">Level</span>

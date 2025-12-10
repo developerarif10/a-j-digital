@@ -7,9 +7,9 @@ export const metadata = {
 
 export default function Portfolio() {
   return (
-    <div className="container mx-auto px-6 py-20">
+    <section className="container mx-auto px-6 py-24">
       <h1 className="text-4xl font-bold mb-4">Work</h1>
-      <p className="text-secondary text-lg mb-12 max-w-2xl">
+      <p className=" text-lg mb-12 max-w-2xl">
         A selection of recent projects blending creativity with technical excellence.
       </p>
 
@@ -18,6 +18,6 @@ export default function Portfolio() {
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

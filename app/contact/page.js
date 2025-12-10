@@ -1,6 +1,7 @@
 "use client"
 import SelectionLabel from '@/components/SelectionLabel'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -131,7 +132,7 @@ export default function Contact() {
                  animate={{ opacity: 1 }}
                  className="text-center py-20"
                >
-                  <h3 className="text-2xl font-bold  mb-2">Message Sent!</h3>
+                  <div className="flex items-center gap-2 mb-4"><h3 className="text-2xl font-bold  mb-2">Message Sent! <Image src="/images/tick_icon.webp" alt="checked" width={50} height={50} className="inline-block" /></h3></div>
                   <p className="text-zinc-600 dark:text-zinc-400 mb-6">We'll get back to you shortly.</p>
                   <button onClick={() => setStatus("idle")} className=" font-bold hover:underline">Send another</button>
                </motion.div>
