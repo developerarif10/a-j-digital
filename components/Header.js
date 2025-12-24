@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Button from './mycomponent/Button'
 import RightArrow from './mycomponent/RightArrow'
@@ -20,6 +21,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
+  const [activeSection, setActiveSection] = useState('')
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -29,13 +32,49 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      // Scroll Spy Logic for Home Page
+      if (pathname === '/') {
+        let currentSection = ''
+        
+        // Define offset (e.g. height of header + some buffer)
+        const offset = 100 
+
+        for (const link of navLinks) {
+          if (link.href.startsWith('#')) {
+            const element = document.querySelector(link.href)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              // Check if the top of the section is within the viewport or reasonably close
+              if (rect.top <= offset && rect.bottom >= offset) {
+                currentSection = link.href
+              }
+            }
+          }
+        }
+        setActiveSection(currentSection)
+      } else {
+         setActiveSection('')
+      }
     }
+
+    // Initial check
+    handleScroll()
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  // Helper to determine if a link is active
+  const isLinkActive = (href) => {
+    if (href.startsWith('#')) {
+      return pathname === '/' && activeSection === href
+    }
+    return pathname === href
   }
 
   return (
@@ -54,16 +93,30 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className="text-sm font-medium hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full pb-1"
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+             const active = isLinkActive(link.href)
+             return (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-300
+                  ${active 
+                    ? 'text-white dark:text-white' 
+                    : 'text-foreground/70 hover:text-foreground'
+                  }
+                `}
+              >
+                {active && (
+                  <motion.div
+                    layoutId="nav-pill"
+                    className="absolute inset-0 bg-primary rounded-sm -z-10"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {link.name}
+              </Link>
+          )})}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -164,7 +217,12 @@ export default function Header() {
                 >
                   <Link 
                     href={link.href}
-                    className="text-4xl md:text-5xl font-bold tracking-tight text-foreground/80 hover:text-primary transition-colors block py-2 border-b border-white/5"
+                    className={`text-4xl md:text-5xl font-bold tracking-tight transition-colors block py-2 border-b border-white/5
+                      ${isLinkActive(link.href)
+                        ? 'text-primary'
+                        : 'text-foreground/80 hover:text-primary'
+                      }
+                    `}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
